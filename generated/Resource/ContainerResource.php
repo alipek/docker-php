@@ -27,12 +27,12 @@ class ContainerResource extends Resource
     public function findAll($parameters = [], $fetch = self::FETCH_OBJECT)
     {
         $queryParam = new QueryParam();
-        $queryParam->setDefault('all', false);
         $queryParam->setDefault('limit', null);
         $queryParam->setDefault('since', null);
         $queryParam->setDefault('before', null);
         $queryParam->setDefault('size', null);
         $queryParam->setDefault('filters', null);
+        $queryParam->setDefault('all', false);
         $url      = '/containers/json';
         $url      = $url . ('?' . $queryParam->buildQueryString($parameters));
         $headers  = array_merge(['Host' => 'localhost'], $queryParam->buildHeaders($parameters));
